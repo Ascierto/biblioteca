@@ -1,0 +1,14 @@
+PROGETTO 1
+
+
+Progettare un gestionale per biblioteche che dia la possibilità all'impiegato di:
+1. gestire i libri (inserirne di nuovi, modificare quelli esistenti, eliminarli)
+2. visualizzare la disponibilità dei libri e le relative informazioni
+3. contrassegnare un libro come "in prestito" o "disponibile" indicando anche l'associato che l'ha
+preso (solo gli associati possono prendere in prestito i libri) e mantenendo uno storico dei prestiti.
+4. gestire gli associati (inserine di nuovi, modificare quelli esistenti, eliminarli)
+Al gestionale può avere accesso anche l'associato, il quale può utilizzare solo la funzionalità di ricerca per visualizzare se è presente uno specifico libro e se questo è disponibile oppure no.
+Ricorda:
+• Proteggere le rotte alla quale l'associato non può accedere
+• Predisporre una login accessibile a entrambi i ruoli, mentre la registrazione utente è disponibile
+solo per l'impiegato che deve registrare i nuovi associati.
