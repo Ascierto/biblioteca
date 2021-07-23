@@ -69,9 +69,64 @@ class Book{
 
     }
 
-    public static function updateBook(){
+    public static function updateBook($data,$id){
 
+        $data=array(
+            'ISBN'=>$data['ISBN'],
+            'title'=>$data['title'],
+            'description'=>$data['description'],
+            'cover'=>$data['cover'],
+            'price'=>$data['price'],
+            'published_year'=>$data['published_year'],
+            'editor'=>$data['editor'],
+            'available'=>$data['available'],
+            'author_name'=>$data['author_name'],
+            'author_bio'=>$data['author_bio'],
+        );
+        // $data = self::sanitize($data);
+
+        if ($data) {
+            
+            $db= connect();
+
+            $id          = intval($id);
+            $is_in_error = false;
+
+            try {
+                $query = $db->prepare('UPDATE books 
+                SET ISBN = ?,title = ?, description = ?, cover = ?,price = ?,published_year = ?,editor = ?,available = ?,
+                author_name = ?, author_bio = ? WHERE id = ?');
+                if (is_bool($query)) {
+                    throw new \Exception('Query non valida. $mysqli->prepare ha restituito false.');
+                }
+                $query->bind_param('isssiisissi',$data['ISBN'],$data['title'],$data['description'],$data['cover'],$data['price'],
+                        $data['published_year'],$data['editor'],$data['available'],$data['author_name'],$data['author_bio'],$id);
+
+                $query->execute();
+
+            } catch (\Exception $e) {
+                error_log("Errore PHP in linea {$e->getLine()}: " . $e->getMessage() . "\n", 3, 'my-errors.log');
+            }
+
+            if (! is_bool($query)) {
+                if (count($query->error_list) > 0) {
+                    $is_in_error = true;
+                    foreach ($query->error_list as $error) {
+                        error_log("Errore MySQL n. {$error['errno']}: {$error['error']} \n", 3, 'my-errors.log');
+                    }
+                    header('Location: http://localhost:8888/biblioteca/edit-book.php?id=' . $id . '&stato=ko');
+                    exit;
+                }
+            }
+
+            $stato = $is_in_error ? 'ko' : 'ok';
+            header('Location: http://localhost:8888/biblioteca/detail-book.php?id=' . $id . '&stato=' . $stato);
+            exit;
+
+        }
     }
+
+   
 
     public static function deleteBook($id = null){
 
