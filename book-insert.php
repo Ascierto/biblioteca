@@ -9,7 +9,7 @@ include __DIR__ .'/includes/header.php';
             <form method="POST" action="./includes/insert-book.php">
               <div class="mb-3">
                 <label for="isbn" class="form-label">ISBN</label>
-                <input name="ISBN" type="number" class="form-control" id="isbn">
+                <input name="ISBN" type="text" class="form-control" id="isbn">
               </div>
               <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>

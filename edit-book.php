@@ -18,7 +18,7 @@ $book = \Biblos\Book::selectBook($data);
             <form method="POST" action="./includes/update-book.php?id=<?php echo $_GET['id']; ?>">
               <div class="mb-3">
                 <label for="isbn" class="form-label">ISBN</label>
-                <input name="ISBN" type="number" class="form-control" id="isbn" value="<?php echo $book[0]['ISBN'] ?>">
+                <input name="ISBN" type="text" class="form-control" id="isbn" value="<?php echo $book[0]['ISBN'] ?>">
               </div>
               <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>

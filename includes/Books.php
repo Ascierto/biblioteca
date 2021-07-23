@@ -5,10 +5,49 @@ include __DIR__ .'/Db.php';
 
 class Book{
 
+    public static function cleanInput($input)
+    {
+        $input = trim($input);
+        $input = filter_var($input, FILTER_SANITIZE_ADD_SLASHES);
+        $input = filter_var($input, FILTER_SANITIZE_SPECIAL_CHARS);
+        return $input;
+    }
+
+    //la regex funziona ma non mi da errori di conf, cercare il modo di comunicare error in inserimento
+    public static function isISBNvalid($isbn){
+       	
+        return preg_match('/^[0-9]*[-| ][0-9]*[-| ][0-9]*[-| ][0-9]*[-| ][0-9]*$/', $isbn);
+    }
+
+
+
+    protected static function sanitize($fields)
+    {
+         $errors        = array();
+         $fields['ISBN'] = self::cleanInput($fields['ISBN']);
+        if (self::isISBNvalid($fields['ISBN']) === 0) {
+            $errors[] = new \Exception('ISBN non valido');
+        }
+        $fields['title'] = self::cleanInput($fields['title']);
+
+        $fields['description'] = self::cleanInput($fields['description']);
+     
+        $fields['editor'] = self::cleanInput($fields['editor']); 
+
+        $fields['author_name'] = self::cleanInput($fields['author_name']);
+
+        $fields['author_bio'] = self::cleanInput($fields['author_bio']);
+
+        if (count($errors) > 0) {
+            return $errors;
+        }
+
+        return $fields;
+    }
+
+
     public static function insertBook($data){
 
-
-        //isbn è un codice di 13 cifre, crea un regex per controllarlo e settalo a char di 13 controlla i -;
         
         $data=array(
             'ISBN'=>$data['ISBN'],
@@ -23,11 +62,13 @@ class Book{
             'author_bio'=>$data['author_bio'],
         );
 
+        $data = self::sanitize($data);
+
         $db=connect();
 
         $query = $db->prepare('INSERT INTO books(ISBN,title,description,cover,price,published_year,editor,available,author_name,author_bio) 
         VALUES (?,?,?,?,?,?,?,?,?,?)');
-        $query->bind_param('isssiisiss',$data['ISBN'],$data['title'],$data['description'],$data['cover'],$data['price'],
+        $query->bind_param('ssssiisiss',$data['ISBN'],$data['title'],$data['description'],$data['cover'],$data['price'],
                             $data['published_year'],$data['editor'],$data['available'],$data['author_name'],$data['author_bio']);
         $query->execute();
 
@@ -83,7 +124,8 @@ class Book{
             'author_name'=>$data['author_name'],
             'author_bio'=>$data['author_bio'],
         );
-        // $data = self::sanitize($data);
+        
+        $data = self::sanitize($data);
 
         if ($data) {
             
@@ -99,7 +141,7 @@ class Book{
                 if (is_bool($query)) {
                     throw new \Exception('Query non valida. $mysqli->prepare ha restituito false.');
                 }
-                $query->bind_param('isssiisissi',$data['ISBN'],$data['title'],$data['description'],$data['cover'],$data['price'],
+                $query->bind_param('ssssiisissi',$data['ISBN'],$data['title'],$data['description'],$data['cover'],$data['price'],
                         $data['published_year'],$data['editor'],$data['available'],$data['author_name'],$data['author_bio'],$id);
 
                 $query->execute();
