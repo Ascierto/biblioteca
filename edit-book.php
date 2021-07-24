@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION['is_admin'])) {
+  header('Location: http://localhost:8888/biblioteca/login.php');
+}elseif ($_SESSION['is_admin'] == 0){
+  header('Location: http://localhost:8888/biblioteca/?messages=Impossibile accedere');
+}
+
 include __DIR__ . '/includes/header.php';
 
 include __DIR__ . '/includes/Books.php';

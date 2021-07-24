@@ -191,4 +191,38 @@ class Users{
         }
 
     }
+
+     public static function loginUser($data){
+
+        $fields = array(
+        'email'  => $data['email'],
+        'password'  => $data['password']
+        );
+
+        $fields=self::sanitize($fields);
+
+        $db=connect();
+
+        $query_user = $db->query("SELECT * FROM users WHERE email = '" . $fields['email'] . "'");
+
+        if ($query_user->num_rows === 0) {
+            header('Location: http://localhost:8888/biblioteca/login.php?stato=errore&messages=Utente non presente');
+            exit;
+        }
+
+        $user = $query_user->fetch_assoc();
+
+        if ($user['password'] !== md5($fields['password'])) {
+            header('Location: http://localhost:8888/biblioteca/login.php?stato=errore&messages=Password errata');
+            exit;
+        }
+
+        return array(
+        'id'  => $user['id'],
+        'email' => $user['email'],
+        'name' => $user['name'],
+        'surname'=>$user['surname'],
+        'is_admin'=>$user['is_admin']
+        );
+    }
 }

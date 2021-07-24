@@ -22,6 +22,12 @@ solo per l'impiegato che deve registrare i nuovi associati.
     va studiata!
 
 -  Creare logica della login e tenere fuori utenti che non sono admin dalle rotte non accessibili!
+    log-in e logout funzionanti... ora lavorare sulle rotte che può vedere solo admin
+    Lascio bloccate tutte le rotte se non loggato puoi vedere solo index e login
+    
+-  gestione cover (non obbligatoria) N.B. ricorda enctype nel tag form!(sbagliavo questo)
+- refactoring
+- ricerca su titoli o su autori per utenti loggati
 
 
 BUG to FIX:

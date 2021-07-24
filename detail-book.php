@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include __DIR__ . '/includes/header.php';
 
 include __DIR__ . '/includes/Books.php';
@@ -16,8 +18,10 @@ $book = \Biblos\Book::selectBook($data);
 <section class="container my-5">
     <div class="row">
         <div class="col-12 text-end">
+            <?php if($_SESSION['is_admin'] == 1) :?>
             <a href="edit-book.php?id=<?php echo $_GET['id'];?>" class="btn btn-outline-warning">Modifica</a>
             <a href="./includes/delete-book.php?id=<?php echo $_GET['id'];?>" class="btn btn-outline-danger">Elimina</a>
+            <?php endif; ?>
         </div>
         <div class="col-12">
             <h1> <?php echo $book[0]['title'] ?></h1>
