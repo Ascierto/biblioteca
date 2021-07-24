@@ -17,3 +17,6 @@ solo per l'impiegato che deve registrare i nuovi associati.
 3 - creo pagina utenti e relativa tab in db con nome cognome mail pass e la collego a libri in prestito che ha
 come fk id_utente(studiare se onetoM o manytoM) con flag preso il, restituire il.
 potrei ipotizzare una tab prestiti con id_utente fk e id_libro fk con data_inizio e data_fine.
+
+adesso fare una select che mostra in una pagina tutti i libri prestati, prevedere una join che esce tt le informazioni
+dell'utente e del libro, prevdere anche un id_utente se vogliamo vedere i libri presi da quell'utente lì.

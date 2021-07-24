@@ -50,4 +50,39 @@ class Rent{
 
         $query->close();
     }
+
+    // SELECT rent_books.rent_start,rent_books.rent_end,users.name,users.surname,books.title from rent_books  
+    //     inner join books on rent_books.id_books= books.id
+    //     inner join users on rent_books.id_users=users.id;
+
+    public static function showRents($data=null){
+
+
+        $db = connect();
+
+        if (isset($data['id'])) {
+            $data['id'] = intval($data['id']);
+            $query      = $db->prepare("SELECT rent_books.id,rent_books.rent_start,rent_books.rent_end,users.name,users.surname,books.title from rent_books  
+                            inner join books on rent_books.id_books= books.id
+                            inner join users on rent_books.id_users=users.id
+                            where users.id= ?");
+            $query->bind_param('i', $data['id'],);
+            $query->execute();
+            $query = $query->get_result();
+        } else {
+            $query = $db->query("SELECT rent_books.id,rent_books.rent_start,rent_books.rent_end,users.name,users.surname,books.title from rent_books  
+                    inner join books on rent_books.id_books= books.id
+                    inner join users on rent_books.id_users=users.id");
+        }
+
+        
+
+        $results = array();
+
+        while ($row = $query->fetch_assoc()) {
+            $results[] = $row;
+        }
+
+        return $results;
+    }
 }
