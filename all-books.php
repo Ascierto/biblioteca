@@ -25,6 +25,7 @@ if(isset($_GET['available'])){
 <section class="container">
     <div class="row" id="ava">
         <div class="col-12 text-end">
+            <a href="./all-books.php#ava" class="btn btn-outline-dark">Tutti i libri</a>
             <a href="./all-books.php?available=true#ava" class="btn btn-outline-success">Disponibile🟢</a>
             <a href="./all-books.php?available=false#ava" class="btn btn-outline-danger">In prestito 🔴</a>
         </div>
