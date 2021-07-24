@@ -32,7 +32,12 @@
         <li class="nav-item">
           <a class="nav-link" href="./all-users.php">Utenti</a>
         </li>
-      
+        <li class="nav-item">
+          <a class="nav-link" href="./rent-insert.php">Inserisci Prestito</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./all-rent.php">Prestiti</a>
+        </li>
       </ul>
     </div>
   </div>

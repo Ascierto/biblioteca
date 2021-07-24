@@ -2,11 +2,11 @@ PROGETTO 1
 
 
 Progettare un gestionale per biblioteche che dia la possibilità all'impiegato di:
-1. gestire i libri (inserirne di nuovi, modificare quelli esistenti, eliminarli)
-2. visualizzare la disponibilità dei libri e le relative informazioni
+1. gestire i libri (inserirne di nuovi, modificare quelli esistenti, eliminarli) ✔️
+2. visualizzare la disponibilità dei libri e le relative informazioni ✔️
 3. contrassegnare un libro come "in prestito" o "disponibile" indicando anche l'associato che l'ha
 preso (solo gli associati possono prendere in prestito i libri) e mantenendo uno storico dei prestiti.
-4. gestire gli associati (inserine di nuovi, modificare quelli esistenti, eliminarli)
+4. gestire gli associati (inserine di nuovi, modificare quelli esistenti, eliminarli) ✔️
 Al gestionale può avere accesso anche l'associato, il quale può utilizzare solo la funzionalità di ricerca per visualizzare se è presente uno specifico libro e se questo è disponibile oppure no.
 Ricorda:
 • Proteggere le rotte alla quale l'associato non può accedere
@@ -17,5 +17,3 @@ solo per l'impiegato che deve registrare i nuovi associati.
 3 - creo pagina utenti e relativa tab in db con nome cognome mail pass e la collego a libri in prestito che ha
 come fk id_utente(studiare se onetoM o manytoM) con flag preso il, restituire il.
 potrei ipotizzare una tab prestiti con id_utente fk e id_libro fk con data_inizio e data_fine.
-4 pagina utenti con gestione crud da parte di admin, fatta la select per mostrare utenti, creare la modifica e 
-la soft delete dell'utente nella stessa pagina.
