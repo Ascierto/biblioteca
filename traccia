@@ -14,9 +14,18 @@ Ricorda:
 solo per l'impiegato che deve registrare i nuovi associati.
 
 
-3 - creo pagina utenti e relativa tab in db con nome cognome mail pass e la collego a libri in prestito che ha
-come fk id_utente(studiare se onetoM o manytoM) con flag preso il, restituire il.
-potrei ipotizzare una tab prestiti con id_utente fk e id_libro fk con data_inizio e data_fine.
 
-adesso fare una select che mostra in una pagina tutti i libri prestati, prevedere una join che esce tt le informazioni
-dell'utente e del libro, prevdere anche un id_utente se vogliamo vedere i libri presi da quell'utente lì.
+
+-   il progetto prende forma, studiare una soluzione per cambiare in books la disponibilità quando parte il prestito
+    potrei pensare a fare un update con l'insert, quindi update available set = 0 quando insert prestito.
+    Inoltre farla funzionare al contrario, quando rientra il libro renderlo disponibile.
+    va studiata!
+
+-  Creare logica della login e tenere fuori utenti che non sono admin dalle rotte non accessibili!
+
+
+BUG to FIX:
+gestire errore quando ISBN non corretto,nella peggiore delle ipotesi cancella il campo!
+
+
+
