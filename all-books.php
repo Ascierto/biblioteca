@@ -4,7 +4,13 @@ include __DIR__ . '/includes/header.php';
 
 include __DIR__ . '/includes/Books.php';
 
-$books = \Biblos\Book::selectBook();
+if(isset($_GET['available'])){
+    $books= \Biblos\Book::showStatus($_GET['available']);
+}else{
+    
+    $books = \Biblos\Book::selectBook();
+}
+
   
 ?>
 
@@ -15,6 +21,15 @@ $books = \Biblos\Book::selectBook();
         </div>
     </div>
 </div>
+
+<section class="container">
+    <div class="row" id="ava">
+        <div class="col-12 text-end">
+            <a href="./all-books.php?available=true#ava" class="btn btn-outline-success">Disponibile🟢</a>
+            <a href="./all-books.php?available=false#ava" class="btn btn-outline-danger">In prestito 🔴</a>
+        </div>
+    </div>
+</section>
 
 <div class="container my-5">
     <div class="row">

@@ -193,5 +193,33 @@ class Book{
 
     }
 
+    public static function showStatus($available){
+
+        $db = connect();
+
+
+        if($available){
+
+            $query = $db->query("SELECT * FROM books WHERE available = " . $available);
+         }else{
+            
+            $query = $db->query("SELECT * FROM books");
+        }
+        
+
+
+        $results=[];
+
+        if($query->num_rows > 0){
+            
+            while ($row = $query->fetch_assoc()) {
+                $results[] = $row;
+            }      
+        }
+
+        return $results;
+
+    }
+
  
 }

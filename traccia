@@ -12,3 +12,9 @@ Ricorda:
 • Proteggere le rotte alla quale l'associato non può accedere
 • Predisporre una login accessibile a entrambi i ruoli, mentre la registrazione utente è disponibile
 solo per l'impiegato che deve registrare i nuovi associati.
+
+
+2- metto filtri disponibilità e faccio query che mi caccia tutti quelli disp e quelli non disp nella pagina all.
+3 - creo pagina utenti e relativa tab in db con nome cognome mail pass e la collego a libri in prestito che ha
+come fk id_utente(studiare se onetoM o manytoM) con flag preso il, restituire il.
+4 pagina utenti con gestione crud da parte di admin.
