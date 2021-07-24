@@ -20,6 +20,8 @@ $users= \Biblos\Users::showUsers();
                   <th scope="col">Cognome</th>
                   <th scope="col">Email</th>
                   <th scope="col">Password</th>
+                  <th scope="col">Modifica</th>
+                  <th scope="col">Elimina</th>
                 </tr>
               </thead>
               <tbody>
@@ -30,6 +32,8 @@ $users= \Biblos\Users::showUsers();
                   <td><?php echo $user['surname'] ?></td>
                   <td><?php echo $user['email'] ?></td>
                   <td><?php echo $user['password'] ?></td>
+                  <td><a href="./edit-user.php?id=<?php echo $user['id'] ?>">✏️</a></td>
+                  <td><a href="delete-user">❌</a></td>
                 </tr>
                 <?php endforeach; ?>
              

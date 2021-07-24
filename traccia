@@ -17,4 +17,5 @@ solo per l'impiegato che deve registrare i nuovi associati.
 3 - creo pagina utenti e relativa tab in db con nome cognome mail pass e la collego a libri in prestito che ha
 come fk id_utente(studiare se onetoM o manytoM) con flag preso il, restituire il.
 potrei ipotizzare una tab prestiti con id_utente fk e id_libro fk con data_inizio e data_fine.
-4 pagina utenti con gestione crud da parte di admin.
+4 pagina utenti con gestione crud da parte di admin, fatta la select per mostrare utenti, creare la modifica e 
+la soft delete dell'utente nella stessa pagina.
