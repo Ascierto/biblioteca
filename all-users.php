@@ -33,7 +33,7 @@ $users= \Biblos\Users::showUsers();
                   <td><?php echo $user['email'] ?></td>
                   <td><?php echo $user['password'] ?></td>
                   <td><a href="./edit-user.php?id=<?php echo $user['id'] ?>">✏️</a></td>
-                  <td><a href="delete-user">❌</a></td>
+                  <td><a href="./includes/softdelete-user.php?id=<?php echo $user['id'] ?>">❌</a></td>
                 </tr>
                 <?php endforeach; ?>
              

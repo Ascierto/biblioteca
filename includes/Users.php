@@ -82,12 +82,12 @@ class Users{
 
         if (isset($data['id'])) {
             $data['id'] = intval($data['id']);
-            $query      = $db->prepare('SELECT * FROM users WHERE users.id = ?');
+            $query      = $db->prepare('SELECT * FROM users WHERE users.id = ? AND users.is_deleted=0');
             $query->bind_param('i', $data['id'],);
             $query->execute();
             $query = $query->get_result();
         } else {
-            $query = $db->query("SELECT * FROM users");
+            $query = $db->query("SELECT * FROM users WHERE users.is_deleted=0");
         }
 
         
@@ -168,4 +168,27 @@ class Users{
 
 
     //delete che fa la soft delete degli user!
+
+    public static function softDeleteUser($id=null){
+
+        $db= connect();
+
+        if ( $id ) {
+
+            $id = intval($id);
+    
+            $query = $db->prepare('UPDATE users SET is_deleted=1  WHERE id = ?');
+            $query->bind_param('i', $id);
+            $query->execute();
+    
+            if ($query->affected_rows > 0) {
+                header('Location: http://localhost:8888/biblioteca/all-users.php?statocanc=ok');
+                exit;
+            } else {
+                header('Location: http://localhost:8888/biblioteca/all-users.php?statocanc=ko');
+                exit;
+            }
+        }
+
+    }
 }
