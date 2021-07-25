@@ -10,6 +10,12 @@ include __DIR__ . '/includes/header.php';
 
 include __DIR__ . '/includes/Books.php';
 
+include __DIR__ . '/includes/utils.php';
+
+if(isset($_GET['stato'])){
+    \Biblos\Utils\show_alert('inserimento',$_GET['stato']);
+}
+
 if(isset($_GET['available'])){
     $books= \Biblos\Book::showStatus($_GET['available']);
 }else{
@@ -28,9 +34,18 @@ if(isset($_GET['available'])){
     </div>
 </div>
 
+
+
 <section class="container">
     <div class="row" id="ava">
-        <div class="col-12 text-end">
+        <div class="col-12 col-md-6 text-center">
+                <h2>Cerca libro per titolo</h2>
+                <form class="d-flex" method="POST" action="./search-title.php">
+                    <input name="q" class="form-control me-2" type="search" placeholder="Cerca titolo" aria-label="Cerca">
+                    <button class="btn btn-outline-success" type="submit">Cerca</button>
+                </form>
+        </div>
+        <div class="col-12 col-md-6 text-end">
             <a href="./all-books.php#ava" class="btn btn-outline-dark">Tutti i libri</a>
             <a href="./all-books.php?available=true#ava" class="btn btn-outline-success">Disponibile🟢</a>
             <a href="./all-books.php?available=false#ava" class="btn btn-outline-danger">In prestito 🔴</a>

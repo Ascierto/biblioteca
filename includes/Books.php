@@ -275,7 +275,7 @@ class Book{
         $query_search = $db->query("SELECT * FROM books WHERE title = '" . $fields['q'] . "'");
 
         if ($query_search->num_rows === 0) {
-            header('Location: http://localhost:8888/biblioteca/index.php?stato=errore&messages=Libro non presente');
+            header('Location: http://localhost:8888/biblioteca/all-books.php?stato=errore&messages=Libro non presente');
             exit;
         }
 
