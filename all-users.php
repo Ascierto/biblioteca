@@ -6,14 +6,22 @@ session_start();
 if (!isset($_SESSION['is_admin'])) {
   header('Location: http://localhost:8888/biblioteca/login.php');
 }elseif ($_SESSION['is_admin'] == 0){
-  header('Location: http://localhost:8888/biblioteca/?messages=Impossibile accedere');
+  header('Location: http://localhost:8888/biblioteca/?stato=errore&messages=Impossibile accedere');
 }
 
 include __DIR__ . '/includes/Users.php';
 
 include __DIR__ .'/includes/header.php';
 
+include __DIR__ . '/includes/utils.php';
+
+if (isset($_GET['statocanc'])) {
+  \Biblos\Utils\show_alert('cancellazione', $_GET['statocanc']);
+}
+
 $users= \Biblos\Users::showUsers();
+
+
  
 ?>
 

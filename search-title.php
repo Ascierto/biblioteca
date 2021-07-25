@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['email'])) {
-    header('Location: http://localhost:8888/biblioteca/login.php?messages=Esegui il login per effettuare ricerche');
+    header('Location: http://localhost:8888/biblioteca/login.php?stato=errore&messages=Esegui il login per effettuare ricerche');
   } 
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/Books.php';

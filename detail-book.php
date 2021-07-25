@@ -6,11 +6,17 @@ include __DIR__ . '/includes/header.php';
 
 include __DIR__ . '/includes/Books.php';
 
+include __DIR__ . '/includes/utils.php';
+
 $data=array(
     'id'=>$_GET['id']
 );
 
 $book = \Biblos\Book::selectBook($data);
+
+if (isset($_GET['stato'])) {
+    \Biblos\Utils\show_alert('modifica', $_GET['stato']);
+}
 
  
 ?>

@@ -4,10 +4,15 @@ session_start();
 if (!isset($_SESSION['is_admin'])) {
   header('Location: http://localhost:8888/biblioteca/login.php');
 }elseif ($_SESSION['is_admin'] == 0){
-  header('Location: http://localhost:8888/biblioteca/?messages=Impossibile accedere');
+  header('Location: http://localhost:8888/biblioteca/?stato=errore&messages=Impossibile accedere');
 }
 
 include __DIR__ .'/includes/header.php';
+include __DIR__ .'/includes/utils.php';
+
+if (isset($_GET['stato'])) {
+  \Biblos\Utils\show_alert('inserimento', $_GET['stato']);
+}
 
 ?>
 
@@ -17,11 +22,11 @@ include __DIR__ .'/includes/header.php';
             <form method="POST" action="./includes/insert-book.php" enctype="multipart/form-data">
               <div class="mb-3">
                 <label for="isbn" class="form-label">ISBN</label>
-                <input name="ISBN" type="text" class="form-control" id="isbn">
+                <input name="ISBN" type="text" class="form-control" id="isbn" required>
               </div>
               <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
-                <input name="title" type="text" class="form-control" id="title">
+                <input name="title" type="text" class="form-control" id="title" required>
               </div>
               <div class="mb-3">
                 <label for="desc" class="form-label">Descrizione</label>
@@ -37,7 +42,7 @@ include __DIR__ .'/includes/header.php';
             </div>
               <div class="mb-3">
                 <label for="price" class="form-label">Prezzo</label>
-                <input name="price" type="number" step=0.01 class="form-control" id="price">
+                <input name="price" type="number" step=0.01 class="form-control" id="price" required>
               </div>
               <div class="mb-3">
                 <label for="editor" class="form-label">Casa editrice</label>
@@ -52,7 +57,7 @@ include __DIR__ .'/includes/header.php';
              </div>
              <div class="mb-3">
                 <label for="author_name" class="form-label">Nome Autore</label>
-                <input name="author_name" type="text" class="form-control" id="author_name">
+                <input name="author_name" type="text" class="form-control" id="author_name" required>
               </div>
               <div class="mb-3">
                 <label for="author_bio" class="form-label">Bio Autore</label>

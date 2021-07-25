@@ -156,7 +156,7 @@ class Users{
             }
 
             $stato = $is_in_error ? 'ko' : 'ok';
-            header('Location: http://localhost:8888/biblioteca/all-users.php?id=' . $id . '&stato=' . $stato);
+            header('Location: http://localhost:8888/biblioteca/edit-user.php?id=' . $id . '&stato=' . $stato);
             exit;
 
         }

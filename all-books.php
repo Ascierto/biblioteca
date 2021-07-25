@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['email'])) {
-    header('Location: http://localhost:8888/biblioteca/login.php');
+    header('Location: http://localhost:8888/biblioteca/login.php?stato=errore&messages=Esegui login');
   } 
 
 include __DIR__ . '/includes/header.php';
@@ -64,4 +64,4 @@ if(isset($_GET['available'])){
 </div>
 
 
-<?php include __DIR__ . '/includes/footer.php'; ?>
+

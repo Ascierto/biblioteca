@@ -28,12 +28,15 @@ solo per l'impiegato che deve registrare i nuovi associati.
 status alle 00.35 : Applicativo funzionante mancano pochi pezzi 
 
 -  gestione cover (non obbligatoria) N.B. ricorda enctype nel tag form!(sbagliavo questo) ✔️
-- ricerca su titoli o su autori per utenti loggati
+- ricerca su titoli o su autori per utenti loggati ✔️
+
+status alle 16.30 : Applicativo funzionante provo un minimo di refactoring e inizio gestione errori.
 - refactoring
 
 
 BUG to FIX:
 gestire errore quando ISBN non corretto,nella peggiore delle ipotesi cancella il campo!
+se ISBN non valido non inserisce libro ma cmq mi fa report di inserito con successo!
 
 
 
