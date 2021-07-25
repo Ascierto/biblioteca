@@ -24,3 +24,6 @@ include __DIR__ . '/includes/header.php';
         </div>
     </div>
 </div>
+
+
+<?php include __DIR__ . '/includes/footer.php'; ?>

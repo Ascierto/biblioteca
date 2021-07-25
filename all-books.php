@@ -63,3 +63,5 @@ if(isset($_GET['available'])){
     </div>
 </div>
 
+
+<?php include __DIR__ . '/includes/footer.php'; ?>

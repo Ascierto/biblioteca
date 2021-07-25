@@ -13,7 +13,7 @@ if (!isset($_SESSION['is_admin'])) {
 
 
 
-   <div class="container my-5">
+        <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 card p-5">
                     <form method="POST" action="./includes/register.php">
@@ -42,3 +42,6 @@ if (!isset($_SESSION['is_admin'])) {
                 </div>
             </div>
         </div>
+
+
+        <?php include __DIR__ . '/includes/footer.php'; ?>

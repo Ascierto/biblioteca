@@ -75,3 +75,5 @@ $book = \Biblos\Book::selectBook($data);
         </div>
     </div>
 </div>
+
+<?php include __DIR__ . '/includes/footer.php'; ?>

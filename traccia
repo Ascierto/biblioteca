@@ -27,9 +27,9 @@ solo per l'impiegato che deve registrare i nuovi associati.
     
 status alle 00.35 : Applicativo funzionante mancano pochi pezzi 
 
--  gestione cover (non obbligatoria) N.B. ricorda enctype nel tag form!(sbagliavo questo)
-- refactoring
+-  gestione cover (non obbligatoria) N.B. ricorda enctype nel tag form!(sbagliavo questo) ✔️
 - ricerca su titoli o su autori per utenti loggati
+- refactoring
 
 
 BUG to FIX:

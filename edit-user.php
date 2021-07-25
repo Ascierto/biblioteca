@@ -20,7 +20,7 @@ $user = \Biblos\Users::showUsers($data);
  
 ?>
 
-<div class="container my-5">
+        <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 card p-5">
                     <form method="POST" action="./includes/update-user.php?id=<?php echo $_GET['id'] ;?>">
@@ -49,3 +49,8 @@ $user = \Biblos\Users::showUsers($data);
                 </div>
             </div>
         </div>
+
+
+
+
+        <?php include __DIR__ . '/includes/footer.php'; ?>

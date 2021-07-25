@@ -39,3 +39,6 @@ include __DIR__ .'/includes/header.php';
 </div>
 
 
+<?php include __DIR__ . '/includes/footer.php'; ?>
+
+
