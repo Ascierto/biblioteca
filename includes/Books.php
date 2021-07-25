@@ -263,5 +263,40 @@ class Book{
 
     }
 
+
+    public static function search($data){
+
+        $fields = array(
+        'q'  => $data['q']
+        );
+
+        $db=connect();
+
+        $query_search = $db->query("SELECT * FROM books WHERE title = '" . $fields['q'] . "'");
+
+        if ($query_search->num_rows === 0) {
+            header('Location: http://localhost:8888/biblioteca/index.php?stato=errore&messages=Libro non presente');
+            exit;
+        }
+
+        $find = $query_search->fetch_assoc();
+
+      
+
+        return array(
+            'id'=>$find['id'],
+            'ISBN'=>$find['ISBN'],
+            'title'=>$find['title'],
+            'description'=>$find['description'],
+            'cover'=>$find['cover'],
+            'price'=>$find['price'],
+            'published_year'=>$find['published_year'],
+            'editor'=>$find['editor'],
+            'available'=>$find['available'],
+            'author_name'=>$find['author_name'],
+            'author_bio'=>$find['author_bio']
+        );
+    }
+
  
 }
