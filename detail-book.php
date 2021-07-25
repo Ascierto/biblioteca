@@ -21,6 +21,14 @@ if (isset($_GET['stato'])) {
  
 ?>
 
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <a href="./all-books.php" class="btn btn-outline-dark rounded"> < INDIETRO </a>
+        </div>
+    </div>
+</div>
+
 <section class="container my-5">
     <div class="row">
         <div class="col-12 text-end">

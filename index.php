@@ -14,14 +14,17 @@ session_start();
  
 
 ?>
-    <div class="container">
-        <div class="row">
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 ">
             <div class="col-12">
-                <h1>Benvenuti in Biblos</h1>
-                <p>La casa del libro</p>
+                <h1 class="font-weight-light">Benvenuti in Biblos</h1>
+                <p class="lead">La casa del libro</p>
+            </div>
             </div>
         </div>
-    </div>
+    </header>
+    
 
 
 
