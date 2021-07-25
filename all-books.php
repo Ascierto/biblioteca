@@ -43,7 +43,11 @@ if(isset($_GET['available'])){
         <?php foreach($books as $book): ?>
         <div class="col-12 col-md-4">
                 <div class="card">
-                    <img src="./images/libro.jpg" class="card-img-top" alt="...">
+                  <?php if($book['cover']): ?>
+                    <img src="./images/<?php echo $book['cover'] ?>" class="card-img-top img-fluid" alt="...">
+                  <?php else :?>
+                    <img src="./images/libro.jpg" class="card-img-top img-fluid" alt="...">
+                  <?php endif?>
                     <div class="card-body">
                         <h5 class="card-title">Titolo: <?php echo $book['title'] ?></h5>
                         <p class="card-text">Autore: <?php echo $book['author_name'] ?> </p>

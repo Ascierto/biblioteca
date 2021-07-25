@@ -46,14 +46,56 @@ class Book{
     }
 
 
-    public static function insertBook($data){
+    public static function insertBook($data,$file=null){
+
+        $file=array(
+            'nome'=>$_FILES['cover']['name'],
+            'path'=>$_FILES['cover']['tmp_name'],
+            'type'=>$_FILES['cover']['type'],
+            'error'=>$_FILES['cover']['error']
+        );
+
+ 
+
+            if($file['error'] == 0){
+               
+                $estensioni_permesse=array(
+                    'jpg'=>'image/jpg',
+                    'jpeg'=>'image/jpeg',
+                    'png'=>'image/png',
+                );
+
+            
+                //verifico estensione file
+            
+                $estensione = pathinfo($file['nome'],PATHINFO_EXTENSION);
+                if(! array_key_exists($estensione,$estensioni_permesse)){
+                    echo"errore!Seleziona formato valido";
+                }
+            
+                //fare controllo dimensioni!
+            
+                if(in_array($file['type'],$estensioni_permesse)){
+                    if(file_exists('images/'.$file['nome'])){
+                        echo $file['nome']. 'esiste già';
+                    }else{
+                        move_uploaded_file($file['path'], '../images/'.$file['nome']);
+                    }
+                }else{
+                    echo 'Errore durante il caricamento';
+                }
+            }else{
+            
+                echo "Errore" . $file['error'];
+            }
+
 
         
         $data=array(
             'ISBN'=>$data['ISBN'],
             'title'=>$data['title'],
             'description'=>$data['description'],
-            'cover'=>$data['cover'],
+            'cover'=>$file['nome'],
             'price'=>$data['price'],
             'published_year'=>$data['published_year'],
             'editor'=>$data['editor'],

@@ -14,7 +14,7 @@ include __DIR__ .'/includes/header.php';
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form method="POST" action="./includes/insert-book.php">
+            <form method="POST" action="./includes/insert-book.php" enctype="multipart/form-data">
               <div class="mb-3">
                 <label for="isbn" class="form-label">ISBN</label>
                 <input name="ISBN" type="text" class="form-control" id="isbn">
