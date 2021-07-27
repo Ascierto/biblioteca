@@ -21,7 +21,13 @@ ho cambiato campo inzio prestito, effettivamente ora il prestito inzia nel momen
 quindi bisogna solo settare la data fine prestito e verificare che nn sia minore di oggi. ✔️
 
 adesso creo una select dove dinamicamente prendo tutti i libri disponibili e tutti gli utenti dove is_deleted =0
-così da rendere più semplice inserimento rent.
+così da rendere più semplice inserimento rent. ✔️
+
+--- Ultima task per finire il progetto:
+
+-- quando inserisci un libro predisponi il numero di copie disponibili. In modo da poter 
+   gestire i prestiti ed il conteggio delle copie in maniera dinamica. Aggiungi quindi un nuovo campo
+   alla tabella libri(numero_copie) e ricorda di gestire il momento in cui le copie arrivano a zero.
 
 
 
