@@ -46,7 +46,7 @@ if (!isset($_SESSION['is_admin'])) {
                   <td><?php echo $rent['name'] ?></td>
                   <td><?php echo $rent['surname'] ?></td>
                   <td><?php echo $rent['title'] ?></td>
-                  <td><?php echo implode('-', array_reverse(explode('-',$rent['rent_start']))) ?></td> 
+                  <td><?php $date = new DateTime($rent['rent_start']); echo $date->format('d-m-y H:i:s'); ?></td> 
                   <td><?php echo implode('-', array_reverse(explode('-',$rent['rent_end']))) ?></td>
                   <td><?php $rent['available']== 0 ? printf('🔴'):printf('🟢') ?></td> 
                   <td><a href="./includes/close-rent.php?id=<?php echo $rent['id'] ?>" class="btn btn-outline-light rounded">✔️</a></td>

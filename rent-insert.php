@@ -32,10 +32,6 @@ if (isset($_GET['stato'])) {
                 <input name="email" type="email" class="form-control" id="email" required>
               </div>
               <div class="mb-3 form-check">
-                <label for="date-start" class="form-label">Data inzio prestito</label>
-                <input name="rent_start" type="date" class="form-control" id="date-start" required>
-              </div>
-              <div class="mb-3 form-check">
                 <label for="date-end" class="form-label">Data fine prestito</label>
                 <input name="rent_end" type="date" class="form-control" id="date-end" required>
               </div>

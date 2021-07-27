@@ -17,4 +17,7 @@ solo per l'impiegato che deve registrare i nuovi associati.
 faccio un fix delle date, data inzio rent non può essere minore di oggi, data fine rent non può essere minore
 di data inizio
 
+ho cambiato campo inzio prestito, effettivamente ora il prestito inzia nel momento in cui lo inserisci
+quindi bisogna solo settare la data fine prestito e verificare che nn sia minore di oggi.
+
 
