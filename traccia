@@ -18,6 +18,10 @@ faccio un fix delle date, data inzio rent non può essere minore di oggi, data f
 di data inizio
 
 ho cambiato campo inzio prestito, effettivamente ora il prestito inzia nel momento in cui lo inserisci
-quindi bisogna solo settare la data fine prestito e verificare che nn sia minore di oggi.
+quindi bisogna solo settare la data fine prestito e verificare che nn sia minore di oggi. ✔️
+
+adesso creo una select dove dinamicamente prendo tutti i libri disponibili e tutti gli utenti dove is_deleted =0
+così da rendere più semplice inserimento rent.
+
 
 
