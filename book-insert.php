@@ -21,10 +21,6 @@ if (isset($_GET['stato'])) {
         <div class="col-12">
             <form method="POST" action="./includes/insert-book.php" enctype="multipart/form-data">
               <div class="mb-3">
-                <label for="isbn" class="form-label">ISBN</label>
-                <input name="ISBN" type="text" class="form-control" id="isbn" required>
-              </div>
-              <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
                 <input name="title" type="text" class="form-control" id="title" required>
               </div>

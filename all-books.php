@@ -68,7 +68,6 @@ if(isset($_GET['available'])){
                         <p class="card-text">Autore: <?php echo $book['author_name'] ?> </p>
                         <p class="card-text">Anno Pubb: <?php echo $book['published_year'] ?> </p>
                         <p class="card-text">€<?php echo $book['price'] ?> </p>
-                        <p class="card-text">ISBN: <?php echo $book['ISBN'] ?> </p>
                         <p class="card-text"><small class="text-muted">Disponibile : <?php $book['available']== 0 ? printf('🔴'):printf('🟢') ?></small></p>
                         <a href="detail-book.php?id=<?php echo $book['id'];?>" class="btn btn-outline-dark">Dettaglio</a>
                     </div>
