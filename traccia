@@ -14,4 +14,7 @@ Ricorda:
 solo per l'impiegato che deve registrare i nuovi associati.
 
 
+faccio un fix delle date, data inzio rent non può essere minore di oggi, data fine rent non può essere minore
+di data inizio
+
 

@@ -3,6 +3,8 @@ namespace Biblos;
 
 include __DIR__ .'/Db.php';
 
+use DateTime;
+
 class Rent{
 
     // insert into rent_books(id_books,id_users,rent_start,rent_end) values (
@@ -26,6 +28,20 @@ class Rent{
 
         $data['rent_start'] = self::validDataRent($data['rent_start']);
         $data['rent_end'] = self::validDataRent($data['rent_end']);
+
+        $today = new DateTime();
+        $rent_start = new DateTime($data['rent_start']);
+        $rent_end = new DateTime($data['rent_end']);
+
+        if (  $today > $rent_start ) {
+
+            header('Location: http://localhost:8888/biblioteca/rent-insert.php?stato=errore&messages=Inserisci una data valida');
+             exit;
+        }elseif($rent_start > $rent_end){
+
+            header('Location: http://localhost:8888/biblioteca/rent-insert.php?stato=errore&messages=Data fine non valida');
+            exit;
+        }
 
 
         $db=connect();
