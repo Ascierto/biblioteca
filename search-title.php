@@ -28,7 +28,6 @@ $q =\Biblos\Book::search($_POST);
                         <p class="card-text">Autore: <?php echo $q['author_name'] ?> </p>
                         <p class="card-text">Anno Pubb: <?php echo $q['published_year'] ?> </p>
                         <p class="card-text">€<?php echo $q['price'] ?> </p>
-                        <p class="card-text">ISBN: <?php echo $q['ISBN'] ?> </p>
                         <p class="card-text"><small class="text-muted">Disponibile : <?php $q['available']== 0 ? printf('🔴'):printf('🟢') ?></small></p>
                         <a href="./detail-book.php?id=<?php echo $q['id'];?>" class="btn btn-outline-dark">Dettaglio</a>
                     </div>
